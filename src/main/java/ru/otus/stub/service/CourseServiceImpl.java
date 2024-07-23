@@ -3,18 +3,22 @@ package ru.otus.stub.service;
 import org.springframework.stereotype.Service;
 import ru.otus.stub.model.CourseModel;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
-import java.util.stream.LongStream;
 
 @Service
 public class CourseServiceImpl implements ICourseService{
 
+  private final List<CourseModel> courseModels;
+
+  public CourseServiceImpl() {
+    this.courseModels = new ArrayList<>();
+    courseModels.add(new CourseModel("QA java", 15000));
+    courseModels.add(new CourseModel("Java", 12000));
+  }
   @Override
   public List<CourseModel> getAllCourses() {
-    return LongStream
-        .range(1, 10)
-        .mapToObj(val -> new CourseModel(val,"nameCourse" + UUID.randomUUID()))
-        .toList();
+    return courseModels;
   }
+
 }

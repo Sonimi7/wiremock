@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CourseModel {
-  private String name;
-  private int price;
+public class ScoreModel {
+    private String name;
+    private int score;
 }
